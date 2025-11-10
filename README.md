@@ -9,6 +9,12 @@
 - For tracking changes in model parameters in a more structured and automated way than using the text files.
 - Helpful for doing sensitivity tests!
 
+## Installation
+Run the following command from R:
+```R
+devtools::install_github("wimverbruggen/lpjguess.rINS")
+```
+
 ## How to use
 - Reading: `my_params <- read_ins("my_ins_file.ins")`
 - Writing: `write_ins(my_params,"my_new_ins_file.ins")`
