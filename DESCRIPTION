@@ -1,8 +1,10 @@
 Package: lpjguess.rINS
+Type: Package
 Title: Read and write LPJ-GUESS .ins files
 Version: 0.1.0
 Authors@R: person(given="Wim", family="Verbruggen", email = "verbruggen.wim@gmail.com", role = c("aut", "cre"))
 Author: Wim Verbruggen [aut, cre]
+Maintainer: Wim Verbruggen <verbruggen.wim@gmail.com>
 Description: Functions to help reading/writing LPJ-GUESS .ins files in a more structured way.
 License: LGPL (>= 3)
 Encoding: UTF-8
