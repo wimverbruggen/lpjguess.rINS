@@ -2,7 +2,7 @@
 % Please edit documentation in R/resolve_imports.R
 \name{resolve_imports}
 \alias{resolve_imports}
-\title{Resolve imports}
+\title{Resolve imports. Internally used function.}
 \usage{
 resolve_imports(file_path, base_dir = NULL, processed_files = character())
 }
@@ -15,5 +15,5 @@ resolve_imports(file_path, base_dir = NULL, processed_files = character())
 INS file structure where all imports are resolved
 }
 \description{
-Resolve imports
+Resolve imports. Internally used function.
 }
