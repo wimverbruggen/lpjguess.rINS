@@ -16,7 +16,7 @@ devtools::install_github("wimverbruggen/lpjguess.rINS")
 ```
 
 ## How to use
-Make sure to load the package: `load(lpjguess.rINS)`
+Make sure to load the package: `library(lpjguess.rINS)`
 - Reading: `my_params <- read_ins("my_ins_file.ins")`
 - Writing: `write_ins(my_params,"my_new_ins_file.ins")`
 - See `readExample.R` for a script that reads the included global\*.ins files!
