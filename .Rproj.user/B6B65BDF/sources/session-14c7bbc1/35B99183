@@ -1,0 +1,26 @@
+{
+    "id": "35B99183",
+    "path": "~/Science/Tools/lpjguess.rINS/R/write_ins.R",
+    "project_path": "R/write_ins.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1762779013200.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "159,26",
+        "scrollLine": "128"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1762778066,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1762778066,
+    "read_only": false,
+    "read_only_alternatives": []
+}
