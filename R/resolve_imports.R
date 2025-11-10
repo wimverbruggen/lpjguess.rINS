@@ -1,4 +1,4 @@
-#' Resolve imports
+#' Resolve imports. Internally used function.
 #' 
 #' @param file_path Path to an ins file
 #' @param base_dir Directory in which the ins files can be found
