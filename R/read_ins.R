@@ -2,7 +2,7 @@
 #' 
 #' @param file_path Path to LPJ-GUESS .ins file (can import other ins files!)
 #' @return List structure containing contents of .ins file
-# Main reading function
+#' @export
 read_ins <- function(file_path) {
   
   cat("Processing file:", file_path, "\n")

@@ -3,6 +3,7 @@
 #' @param file_path Path to an ins file
 #' @param base_dir Directory in which the ins files can be found
 #' @return INS file structure where all imports are resolved
+#' @export
 resolve_imports <- function(file_path, base_dir = NULL, processed_files = character()) {
   if (is.null(base_dir)) {
     base_dir <- dirname(file_path)
