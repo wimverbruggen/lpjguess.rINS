@@ -2,3 +2,5 @@
 
 export(read_ins)
 export(write_ins)
+import(dplyr)
+import(stringr)

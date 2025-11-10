@@ -3,6 +3,9 @@
 #' 
 #' @param file_path Path to an ins file
 #' @param base_dir Directory in which the ins files can be found
+#' @param processed_files Processed files (internal use)
+#' @import dplyr
+#' @import stringr
 #' @return INS file structure where all imports are resolved
 resolve_imports <- function(file_path, base_dir = NULL, processed_files = character()) {
   if (is.null(base_dir)) {

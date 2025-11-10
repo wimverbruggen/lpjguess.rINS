@@ -10,6 +10,8 @@ resolve_imports(file_path, base_dir = NULL, processed_files = character())
 \item{file_path}{Path to an ins file}
 
 \item{base_dir}{Directory in which the ins files can be found}
+
+\item{processed_files}{Processed files (internal use)}
 }
 \value{
 INS file structure where all imports are resolved

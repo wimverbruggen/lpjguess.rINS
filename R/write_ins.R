@@ -3,6 +3,8 @@
 #' 
 #' @param params Structured list with all parameter info
 #' @param output_file Path to .ins file that will be created
+#' @import dplyr
+#' @import stringr
 #' @export
 write_ins <- function(params, output_file) {
   lines <- character()

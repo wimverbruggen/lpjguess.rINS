@@ -2,15 +2,15 @@
 % Please edit documentation in R/read_ins.R
 \name{read_ins}
 \alias{read_ins}
-\title{Read LPJ-GUESS .ins file}
+\title{Read LPJ-GUESS ins file}
 \usage{
 read_ins(file_path)
 }
 \arguments{
-\item{file_path}{Path to LPJ-GUESS .ins file (can import other ins files!)}
+\item{file_path}{Path to LPJ-GUESS ins file (can import other ins files!)}
 }
 \value{
-List structure containing contents of .ins file
+List structure containing contents of ins file
 }
 \description{
 Read *.ins files. Automatically include imported ins files, and return a list structure with all values.

@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(lpjguess_rINS)
+library(lpjguess.rINS)
 
-test_check("lpjguess_rINS")
+test_check("lpjguess.rINS")
