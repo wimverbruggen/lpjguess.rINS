@@ -1,4 +1,5 @@
-#' Write ins from structured list.
+#' @title Write LPJ-GUESS .ins file
+#' @description Write *.ins files from structured list
 #' 
 #' @param params Structured list with all parameter info
 #' @param output_file Path to .ins file that will be created

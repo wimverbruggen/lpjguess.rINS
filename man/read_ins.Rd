@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_ins.R
 \name{read_ins}
 \alias{read_ins}
-\title{Read LPJ-GUESS .ins file, automatically include imported ins files, and return a list structure with all values.}
+\title{Read LPJ-GUESS .ins file}
 \usage{
 read_ins(file_path)
 }
@@ -13,5 +13,5 @@ read_ins(file_path)
 List structure containing contents of .ins file
 }
 \description{
-Read LPJ-GUESS .ins file, automatically include imported ins files, and return a list structure with all values.
+Read *.ins files. Automatically include imported ins files, and return a list structure with all values.
 }

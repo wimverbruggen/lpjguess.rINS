@@ -2,7 +2,7 @@
 % Please edit documentation in R/write_ins.R
 \name{write_ins}
 \alias{write_ins}
-\title{Write ins from structured list.}
+\title{Write LPJ-GUESS .ins file}
 \usage{
 write_ins(params, output_file)
 }
@@ -12,5 +12,5 @@ write_ins(params, output_file)
 \item{output_file}{Path to .ins file that will be created}
 }
 \description{
-Write ins from structured list.
+Write *.ins files from structured list
 }
