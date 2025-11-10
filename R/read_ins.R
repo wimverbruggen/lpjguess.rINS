@@ -15,8 +15,8 @@ read_ins <- function(file_path) {
   
   # Step 2: Remove comments and clean lines
   content_clean <- full_content %>% 
-    str_replace("!.*", "") %>%  # Remove comments
-    str_trim() %>%             # Remove leading/trailing whitespace
+    stringr::str_replace("!.*", "") %>%  # Remove comments
+    stringr::str_trim() %>%             # Remove leading/trailing whitespace
     .[. != ""]                 # Remove empty lines
   
   # Step 3: Parse the cleaned content
@@ -38,40 +38,40 @@ read_ins <- function(file_path) {
     line <- content_clean[i]
     
     # Check for st (stand type) declaration
-    if (str_detect(line, "^st\\s+\"([^\"]+)\"\\s*\\(")) {
+    if (stringr::str_detect(line, "^st\\s+\"([^\"]+)\"\\s*\\(")) {
       # Save previous section if exists
       if (in_section && !is.na(current_name)) {
         result[[current_type]][[current_name]] <- current_params
       }
       
       # Start new st
-      current_name <- str_match(line, "^st\\s+\"([^\"]+)\"")[1,2]
+      current_name <- stringr::str_match(line, "^st\\s+\"([^\"]+)\"")[1,2]
       current_type <- "st"
       current_params <- list(imports = character())
       bracket_count <- 1
       in_section <- TRUE
       
-    } else if (str_detect(line, "^group\\s+\"([^\"]+)\"\\s*\\(")) {
+    } else if (stringr::str_detect(line, "^group\\s+\"([^\"]+)\"\\s*\\(")) {
       # Save previous section if exists
       if (in_section && !is.na(current_name)) {
         result[[current_type]][[current_name]] <- current_params
       }
       
       # Start new group
-      current_name <- str_match(line, "^group\\s+\"([^\"]+)\"")[1,2]
+      current_name <- stringr::str_match(line, "^group\\s+\"([^\"]+)\"")[1,2]
       current_type <- "group"
       current_params <- list(imports = character())
       bracket_count <- 1
       in_section <- TRUE
       
-    } else if (str_detect(line, "^pft\\s+\"([^\"]+)\"\\s*\\(")) {
+    } else if (stringr::str_detect(line, "^pft\\s+\"([^\"]+)\"\\s*\\(")) {
       # Save previous section if exists
       if (in_section && !is.na(current_name)) {
         result[[current_type]][[current_name]] <- current_params
       }
       
       # Start new pft
-      current_name <- str_match(line, "^pft\\s+\"([^\"]+)\"")[1,2]
+      current_name <- stringr::str_match(line, "^pft\\s+\"([^\"]+)\"")[1,2]
       current_type <- "pft"
       current_params <- list(imports = character())
       bracket_count <- 1
@@ -80,19 +80,19 @@ read_ins <- function(file_path) {
     } else if (!in_section) {
       # Only parse model parameters if we're NOT in a section
       # Handle param statements (special case)
-      if (str_detect(line, '^param\\s+')) {
+      if (stringr::str_detect(line, '^param\\s+')) {
         # Store the entire line after "param" as the value with key "param"
-        param_value <- str_trim(str_sub(line, 6))  # Remove "param" prefix
+        param_value <- stringr::str_trim(stringr::str_sub(line, 6))  # Remove "param" prefix
         if (is.null(result$model$param)) {
           result$model$param <- character()
         }
         result$model$param <- c(result$model$param, param_value)
-      } else if (str_detect(line, "^[a-zA-Z_][a-zA-Z0-9_]*\\s+")) {
+      } else if (stringr::str_detect(line, "^[a-zA-Z_][a-zA-Z0-9_]*\\s+")) {
         # Regular model parameter (key-value pair) - but NOT if it's a section start
-        tokens <- str_split(line, "\\s+", n = 2)[[1]]
+        tokens <- stringr::str_split(line, "\\s+", n = 2)[[1]]
         if (length(tokens) >= 2) {
           param_name <- tokens[1]
-          param_value <- str_trim(tokens[2])
+          param_value <- stringr::str_trim(tokens[2])
           
           # Skip if this looks like a section start that wasn't caught
           if (param_name %in% c("st", "group", "pft")) {
@@ -100,7 +100,7 @@ read_ins <- function(file_path) {
           }
           
           # Remove quotes if present
-          param_value <- str_remove_all(param_value, "^\"|\"$")
+          param_value <- stringr::str_remove_all(param_value, "^\"|\"$")
           
           # Convert to numeric if possible
           param_value_numeric <- suppressWarnings(as.numeric(param_value))
@@ -110,29 +110,29 @@ read_ins <- function(file_path) {
           
           result$model[[param_name]] <- param_value
         }
-      } else if (str_detect(line, "^[a-zA-Z_][a-zA-Z0-9_]*\\s*\".*\"$")) {
+      } else if (stringr::str_detect(line, "^[a-zA-Z_][a-zA-Z0-9_]*\\s*\".*\"$")) {
         # Model parameter with quoted string value
-        tokens <- str_split(line, "\\s+", n = 2)[[1]]
+        tokens <- stringr::str_split(line, "\\s+", n = 2)[[1]]
         if (length(tokens) >= 2) {
           param_name <- tokens[1]
-          param_value <- str_trim(tokens[2])
+          param_value <- stringr::str_trim(tokens[2])
           
           # Skip if this looks like a section start
           if (param_name %in% c("st", "group", "pft")) {
             next
           }
           
-          param_value <- str_remove_all(param_value, "^\"|\"$")
+          param_value <- stringr::str_remove_all(param_value, "^\"|\"$")
           result$model[[param_name]] <- param_value
         }
       }
     } else if (in_section) {
       # Handle brackets
-      if (str_detect(line, "\\(")) {
-        bracket_count <- bracket_count + str_count(line, "\\(")
+      if (stringr::str_detect(line, "\\(")) {
+        bracket_count <- bracket_count + stringr::str_count(line, "\\(")
       }
-      if (str_detect(line, "\\)")) {
-        bracket_count <- bracket_count - str_count(line, "\\)")
+      if (stringr::str_detect(line, "\\)")) {
+        bracket_count <- bracket_count - stringr::str_count(line, "\\)")
       }
       
       # Check if section ended
@@ -145,7 +145,7 @@ read_ins <- function(file_path) {
       }
       
       # Parse content inside section
-      tokens <- str_split(line, "\\s+")[[1]]
+      tokens <- stringr::str_split(line, "\\s+")[[1]]
       tokens <- tokens[tokens != ""]
       
       if (length(tokens) == 0) next
@@ -153,7 +153,7 @@ read_ins <- function(file_path) {
       # Check for standalone names (inheritance for groups and pfts)
       if ((current_type == "group" || current_type == "pft" || current_type == "st") &&
           length(tokens) == 1 && 
-          !str_detect(tokens[1], "^-?[0-9]")) {
+          !stringr::str_detect(tokens[1], "^-?[0-9]")) {
         # This is a group/stand name for inheritance
         current_params$imports <- c(current_params$imports, tokens[1])
       } else if (length(tokens) >= 2) {
@@ -163,8 +163,8 @@ read_ins <- function(file_path) {
         
         # Remove quotes from individual values if they are strings
         param_values <- sapply(param_values, function(x) {
-          if (str_detect(x, '^".*"$')) {
-            str_remove_all(x, '^"|"$')
+          if (stringr::str_detect(x, '^".*"$')) {
+            stringr::str_remove_all(x, '^"|"$')
           } else {
             x
           }

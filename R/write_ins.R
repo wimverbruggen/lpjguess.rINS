@@ -76,7 +76,7 @@ write_ins <- function(params, output_file) {
       for (param_name in names(other_params)) {
         value <- other_params[[param_name]]
         #lines <- c(lines, paste("  ", param_name, format_value(value)))
-        lines <- c(lines, paste("  ",param_name,str_flatten(format_value(value),collapse = " ")))
+        lines <- c(lines, paste("  ",param_name,stringr::str_flatten(format_value(value),collapse = " ")))
       }
       
       lines <- c(lines, ")")
@@ -151,7 +151,7 @@ write_ins <- function(params, output_file) {
       for (param_name in names(other_params)) {
         value <- other_params[[param_name]]
         #lines <- c(lines, paste("  ", param_name, format_value(value)))
-        lines <- c(lines, paste("  ",param_name,str_flatten(format_value(value),collapse = " ")))
+        lines <- c(lines, paste("  ",param_name,stringr::str_flatten(format_value(value),collapse = " ")))
       }
       
       lines <- c(lines, ")")

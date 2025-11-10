@@ -28,8 +28,8 @@ resolve_imports <- function(file_path, base_dir = NULL, processed_files = charac
   
   for (line in content) {
     # Check for import statements
-    if (str_detect(line, '^import\\s+"([^"]+)"')) {
-      import_file <- str_match(line, '^import\\s+"([^"]+)"')[1,2]
+    if (stringr::str_detect(line, '^import\\s+"([^"]+)"')) {
+      import_file <- stringr::str_match(line, '^import\\s+"([^"]+)"')[1,2]
       import_path <- file.path(base_dir, import_file)
       
       if (file.exists(import_path)) {
