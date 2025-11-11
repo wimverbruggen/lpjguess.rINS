@@ -23,8 +23,8 @@ resolve_groups <- function(ins) {
         gr.add$imports <- NULL # And then remove it from the group
         
         # Combine
-        newpft <- c(newpft,gr.add)
-        if(length(gr.add.imports)>0) newpft$imports <- unique(c(gr.add.imports,newpft$imports)) # Merge group imports with current newpft imports (and avoid duplicates)
+        newpft <- c(gr.add,newpft)
+        if(length(gr.add.imports)>0) newpft$imports <- unique(c(newpft$imports,gr.add.imports)) # Merge group imports with current newpft imports (and avoid duplicates)
         newpft$imports <- newpft$imports[newpft$imports!=gr] # Remove the processed import from newpft
         
       }
