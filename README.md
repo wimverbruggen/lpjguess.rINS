@@ -24,7 +24,7 @@ Make sure to load the package: `library(lpjguess.rINS)`
 ## Notes
 - Currently it's best to have the ins files in your R working directory if there are any imports of other ins files. However, this is not needed if your ins file is self-contained (ie. no imports)
 - The writer function will create self-contained ins files!
-- Tip: you can use [waldo](https://waldo.r-lib.org) package to easily compare read INS objects: `waldo::compare(my_params_1,my_params_2)
+- Tip: you can use [waldo](https://waldo.r-lib.org) package to easily compare read INS objects: `waldo::compare(my_params_1,my_params_2)`
 
 ## To do
 - Deal with "param" lines in a better, more structured, way.
