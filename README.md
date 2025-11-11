@@ -22,8 +22,8 @@ Make sure to load the package: `library(lpjguess.rINS)`
 - Resolve imported parameters from higher-level groups into PFTs: `resolve_groups(my_params)`
 
 ## Notes
-- Currently it's best to have the ins files in your R working directory if there are any imports of other ins files. However, this is not needed if your ins file is self-contained (ie. no imports)
-- The writer function will create self-contained ins files!
+- The writer function will create self-contained ins files, so all imports are resolved.
+- The `resolve_groups()` function will only preserve the last-added value when a group value is overwritten in the PFT definition (just like the model does)
 - Tip: you can use [waldo](https://waldo.r-lib.org) package to easily compare read INS objects: `waldo::compare(my_params_1,my_params_2)`
 
 ## To do

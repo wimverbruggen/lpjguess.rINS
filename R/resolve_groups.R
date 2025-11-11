@@ -32,6 +32,10 @@ resolve_groups <- function(ins) {
     if(length(newpft$imports)==0) newpft$imports <- NULL # Finally, remove imports object (if condition should always be TRUE at this point!)
     newins$pft[[p]] <- newpft
   }
+  
+  # Remove duplicates. This will assume that the "last added one" is the one we want, just like in the INS file!
+  newins[!duplicated(names(newins), fromLast = TRUE)]
+  
   return(newins)
 }
   
