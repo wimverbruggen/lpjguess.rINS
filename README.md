@@ -19,11 +19,12 @@ devtools::install_github("wimverbruggen/lpjguess.rINS")
 Make sure to load the package: `library(lpjguess.rINS)`
 - Reading: `my_params <- read_ins("my_ins_file.ins")`
 - Writing: `write_ins(my_params,"my_new_ins_file.ins")`
-- Resolve groups: `resolve_groups(my_params)` to include all parameters from higher-level groups into the PFTs
+- Resolve imported parameters from higher-level groups into PFTs: `resolve_groups(my_params)`
 
 ## Notes
 - Currently it's best to have the ins files in your R working directory if there are any imports of other ins files. However, this is not needed if your ins file is self-contained (ie. no imports)
 - The writer function will create self-contained ins files!
+- Tip: you can use [waldo](https://waldo.r-lib.org) package to easily compare read INS objects: `waldo::compare(my_params_1,my_params_2)
 
 ## To do
 - Deal with "param" lines in a better, more structured, way.
