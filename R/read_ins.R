@@ -2,8 +2,7 @@
 #' @description Read *.ins files. Automatically include imported ins files, and return a list structure with all values.
 #' 
 #' @param file_path Path to LPJ-GUESS ins file (can import other ins files!)
-#' @import dplyr
-#' @import stringr
+#' @importFrom dplyr %>%
 #' @return List structure containing contents of ins file
 #' @export
 read_ins <- function(file_path) {

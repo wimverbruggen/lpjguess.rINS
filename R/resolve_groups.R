@@ -2,8 +2,6 @@
 #' @description Resolves included groups, such that PFTs will contain all parameters defined in higher-level groups (e.g. common)
 #' 
 #' @param ins Structured list with unresolved groups (direct output of read_ins())
-#' @import dplyr
-#' @import stringr
 #' @return Structured list with resolved groups
 #' @export
 resolve_groups <- function(ins) {

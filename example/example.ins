@@ -1,0 +1,15 @@
+group "common" (
+  param1 10
+  param2 20
+  param3 1 2 3
+)
+
+group "grass" (
+  common
+  param2 44
+)
+
+pft "grass" (
+  grass
+  param3 4 5 6
+)

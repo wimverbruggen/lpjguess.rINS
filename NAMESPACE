@@ -3,5 +3,4 @@
 export(read_ins)
 export(resolve_groups)
 export(write_ins)
-import(dplyr)
-import(stringr)
+importFrom(dplyr,"%>%")
